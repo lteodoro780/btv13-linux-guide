@@ -4,34 +4,35 @@
 
 ## Escopo
 
-Este guia registra o uso do **Windows** com **AML Tools** para gravar uma imagem `.img` do **SlimBOX para H96 Max** no BTV13.
+Este guia registra um **procedimento de teste** no Windows com **AML Tools** para gravar uma imagem `.img` do **SlimBOX para H96 Max** no BTV13. Ele não é uma confirmação de compatibilidade para todas as unidades BTV13.
 
-A referência informada para a imagem é o perfil [devmfc](https://github.com/devmfc). **devmfc não é um modo de gravação**: é apenas a origem/referência da imagem usada neste relato. A etapa técnica é colocar o aparelho no **modo de gravação Amlogic**, normalmente pela porta OTG e botão reset/recovery.
+A referência informada para a imagem é o perfil [@devmfc](https://github.com/devmfc). **devmfc não é um modo de gravação**: é a referência/origem indicada neste relato. A etapa técnica é colocar o aparelho no **modo de gravação Amlogic**, normalmente por uma porta OTG e, em algumas revisões, pelo botão reset/recovery.
 
-O nome comercial `H96 Max` sozinho não comprova compatibilidade. Antes de gravar, compare o máximo possível: SoC, revisão da placa, RAM, eMMC, conectores e relatos de teste feitos no mesmo hardware. Não publique a imagem no repositório; registre apenas nome, versão, origem e hash.
+O nome comercial `H96 Max` sozinho não comprova compatibilidade. Antes de gravar, compare SoC, revisão da placa, RAM, eMMC, bootloader, `dtb`/device tree, conectores e relatos feitos no mesmo hardware. Consulte primeiro [Status e compatibilidade](00-status-e-compatibilidade.md).
 
 ## Materiais
 
 - computador com Windows;
 - AML Tools instalado e executado como administrador;
 - imagem SlimBOX em formato `.img`, já extraída em uma pasta local curta, por exemplo `C:\AML\images\`;
-- cabo de dados compatível com a porta **OTG/USB de gravação** do BTV13; evite hub USB;
+- cabo de **dados** compatível com a porta OTG/USB de gravação do BTV13; evite hub USB;
 - fonte de alimentação estável do aparelho;
 - acesso ao botão de reset/recovery, caso sua revisão possua um;
 - backup local da eMMC, quando possível.
 
 ## Antes de começar
 
-1. Salve fotos do aparelho, etiqueta e conectores.
+1. Salve fotos do aparelho, etiqueta, conectores e — quando acessível — serigrafia da placa.
 2. Guarde um backup privado da eMMC ou, no mínimo, registre os dados de hardware já levantados.
-3. Confirme o hash da imagem recebida:
+3. Registre a origem exata: perfil/repositório, nome completo do arquivo, versão/data, URL ou release e data do download.
+4. Confirme o hash da imagem recebida:
 
 ```powershell
 Get-FileHash "C:\AML\images\SlimBOX-H96-Max.img" -Algorithm SHA256
 ```
 
-4. Anote o hash no relato de teste. Não suba a imagem ou o backup para o GitHub.
-5. Feche programas que possam ocupar portas USB e conecte o computador diretamente ao aparelho, sem hub.
+5. Anote o hash no relato de teste. Não suba a imagem ou o backup para o GitHub.
+6. Feche programas que possam ocupar portas USB e conecte o computador diretamente ao aparelho, sem hub.
 
 ## Parte A — preparar o AML Tools
 
@@ -48,14 +49,14 @@ Os nomes de menus e caixas variam por versão do AML Tools. A regra é preservar
 
 ## Parte B — entrar no modo de gravação Amlogic
 
-Faça a sequência com o aparelho desligado:
+A sequência física pode variar entre revisões. Não presuma que qualquer USB do aparelho serve como OTG e não force cabos ou conectores.
 
-1. Deixe o BTV13 sem alimentação.
-2. Conecte o cabo de dados entre a porta OTG/USB usada para gravação e o computador.
-3. Mantenha pressionado o botão **reset/recovery**, quando a sua revisão usar esse método.
-4. Com o reset pressionado, conecte a alimentação somente se a porta USB não fornecer detecção suficiente.
-5. Solte o reset depois que o AML Tools identificar o dispositivo na lista.
-6. Se o aparelho não aparecer, desligue, desconecte tudo e tente novamente com outro cabo, outra porta USB direta e sem hub.
+1. Comece com o BTV13 totalmente desligado.
+2. Conecte o cabo de dados na porta OTG/USB que tenha sido identificada para gravação e no computador.
+3. Mantenha pressionado o botão **reset/recovery** apenas quando esse for o método confirmado para a sua revisão.
+4. Conecte a alimentação conforme a sequência já validada para aquele hardware; algumas unidades são reconhecidas pela USB, outras exigem alimentação externa.
+5. Solte o reset depois que o AML Tools identificar um dispositivo na lista.
+6. Se o aparelho não aparecer, desligue, desconecte tudo e tente novamente com outro cabo de dados, outra porta USB direta e sem hub.
 
 **Sinal esperado:** o AML Tools exibe um dispositivo conectado, pronto para receber a imagem. Não clique em iniciar enquanto o aparelho não estiver identificado.
 
@@ -75,8 +76,8 @@ Registre:
 
 ```text
 Imagem usada:
-Origem da imagem:
-Versão/data da imagem:
+Origem exata da imagem:
+Versão/data do arquivo:
 SHA-256:
 Versão do AML Tools:
 Método de entrada no modo Amlogic:
@@ -98,14 +99,14 @@ Teste pelo menos vídeo HDMI, Ethernet/Wi-Fi, áudio, USB, Bluetooth e estabilid
 2. Tente outra porta USB direta no computador.
 3. Reinstale o driver Amlogic pelo AML Tools.
 4. Repita o procedimento com o aparelho totalmente desligado.
-5. Confirme que está usando a porta OTG correta do BTV13.
+5. Confirme a porta OTG correta na sua revisão do BTV13.
 6. Não avance para opções de apagar bootloader ou chaves apenas para tentar forçar a detecção.
 
 ## Se a gravação falhar ou o aparelho não iniciar
 
 - pare o procedimento e guarde a mensagem exata do AML Tools;
 - registre em que porcentagem ocorreu a falha;
-- confirme o hash e a compatibilidade da imagem;
+- confirme hash e compatibilidade da imagem;
 - volte ao método de boot/recovery já documentado para o aparelho;
 - não alterne imagens aleatórias entre tentativas.
 

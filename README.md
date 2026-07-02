@@ -17,12 +17,14 @@ Este repositório **não** distribui firmware original, dumps de eMMC, APKs, cha
 3. [Primeiro boot e validações](docs/03-primeiro-boot.md)
 4. [Tela cinza e diagnóstico do LightDM](docs/04-tela-cinza-lightdm.md)
 5. [Recuperação e backup local](docs/05-recuperacao.md)
+6. [Windows — SlimBOX H96 Max com AML Tools e DevFMC](docs/06-windows-aml-tools-devfmc.md)
 
 ## Resultado dos testes
 
 - Dispositivo: **BTV13**
 - Plataforma observada: **Amlogic SC2**
 - Método em teste: inicialização de Linux por pendrive
+- Método adicional documentado: gravação pelo Windows com AML Tools, usando imagem SlimBOX H96 Max somente após validação de compatibilidade
 - Ponto de atenção atual: configuração do modo gráfico, especialmente quando o LightDM falha ou a tela permanece cinza
 
 ## Regras de segurança
@@ -32,6 +34,7 @@ Este repositório **não** distribui firmware original, dumps de eMMC, APKs, cha
 - Confirme o disco com `lsblk` antes de usar `dd`, formatar ou montar partições.
 - Não publique imagens completas da eMMC, números de série, MAC address, tokens, senhas ou arquivos proprietários.
 - Use fonte de alimentação estável durante qualquer gravação.
+- Não considere uma imagem compatível apenas porque o nome comercial do aparelho é parecido; confirme placa e hardware antes de gravar.
 
 ## Como contribuir
 

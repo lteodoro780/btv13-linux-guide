@@ -17,7 +17,7 @@ Este repositório **não** distribui firmware original, dumps de eMMC, APKs, cha
 3. [Primeiro boot e validações](docs/03-primeiro-boot.md)
 4. [Tela cinza e diagnóstico do LightDM](docs/04-tela-cinza-lightdm.md)
 5. [Recuperação e backup local](docs/05-recuperacao.md)
-6. [Windows — SlimBOX H96 Max com AML Tools e DevFMC](docs/06-windows-aml-tools-devfmc.md)
+6. [Windows — SlimBOX H96 Max com AML Tools (referência: devmfc)](docs/06-windows-aml-tools-slimbox.md)
 
 ## Resultado dos testes
 

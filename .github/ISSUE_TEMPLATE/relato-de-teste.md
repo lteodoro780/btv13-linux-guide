@@ -1,6 +1,6 @@
 ---
 name: Relato de teste
-aabout: Registre compatibilidade, falha ou resultado parcial no BTV13
+about: Registre compatibilidade, falha ou resultado parcial no BTV13
 title: "[teste] "
 labels: ""
 assignees: ""

@@ -18,7 +18,7 @@ Este repositório **não** distribui firmware original, dumps de eMMC, APKs, cha
 4. [Primeiro boot e validações](docs/03-primeiro-boot.md)
 5. [Tela cinza e diagnóstico do LightDM](docs/04-tela-cinza-lightdm.md)
 6. [Recuperação e backup local](docs/05-recuperacao.md)
-7. [Windows — SlimBOX H96 Max com AML Tools (referência: devmfc)](docs/06-windows-aml-tools-slimbox.md)
+7. [Windows — SlimBOX X96Max Plus Ultra com AML Tools](docs/06-windows-aml-tools-x96max-plus-ultra.md)
 
 ## Resultado dos testes
 
@@ -26,7 +26,8 @@ Este repositório **não** distribui firmware original, dumps de eMMC, APKs, cha
 - Plataforma observada: **Amlogic SC2**
 - Boot por pendrive: procedimento em validação; confira a compatibilidade da imagem antes de testar
 - Sessão gráfica: há relato de tela cinza e falha do LightDM
-- Gravação pelo Windows: procedimento documentado com AML Tools; imagem SlimBOX H96 Max não é compatibilidade genérica
+- Gravação pelo Windows: teste documentado com AML Tools, cabo USB-A × USB-A e botão reset pressionado durante a detecção
+- Imagem usada no teste Windows: SlimBOX para **X96Max Plus Ultra**, obtida na página de origem indicada no guia; não é compatibilidade genérica para todo BTV13
 
 Consulte a página de [status e compatibilidade](docs/00-status-e-compatibilidade.md) antes de considerar qualquer procedimento como comprovado.
 
